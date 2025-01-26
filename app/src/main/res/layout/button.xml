@@ -14,5 +14,6 @@
         android:layout_marginTop="350dp"
         android:textSize="25dp"
         android:layout_gravity="center"
+
         android:text="Mat Click Karo" />
 </LinearLayout>
