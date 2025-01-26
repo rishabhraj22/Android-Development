@@ -1,47 +1,29 @@
-package com.example.myapplication
+fun main() {
+    // Using 'var': Mutable variable
+    var mutableValue = 10
+    println("Initial value of mutableValue: $mutableValue")
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+    // Changing the value of the 'var' variable
+    mutableValue = 20
+    println("Updated value of mutableValue: $mutableValue")
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
+    // Using 'val': Immutable variable
+    val immutableValue = 30
+    println("Value of immutableValue: $immutableValue")
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    // Uncommenting the below line will cause a compilation error because 'val' cannot be reassigned
+    // immutableValue = 40
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
-    }
+    // Demonstrating immutability with val using collections
+    val immutableList = listOf(1, 2, 3)
+    println("Immutable List: $immutableList")
+
+    // While you can't reassign 'immutableList', you cannot add/remove elements either
+    // immutableList.add(4) // This would cause an error
+
+    // Mutable collections with var
+    var mutableList = mutableListOf(4, 5, 6)
+    println("Initial Mutable List: $mutableList")
+    mutableList.add(7) // Adding elements is allowed
+    println("Updated Mutable List: $mutableList")
 }
